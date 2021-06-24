@@ -40,30 +40,6 @@ class MainActivity : AppCompatActivity() {
 
             intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri)
             captureImageLauncher.launch(intent)
-
-
-
-//            var capturedImage = File.createTempFile("capturedImage", ".jpg", getExternalFilesDir(Environment.DIRECTORY_PICTURES)) as File
-//            var capturedImagePath = capturedImage.absolutePath
-//            Log.d(capturedImagePath, "capturedimagepath")
-//            val outputFileUri = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + "." + localClassName + ".fileprovider", capturedImage) as Uri
-//
-//            var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-//            intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri)
-//            captureImageLauncher.launch(intent)
-
-
-//            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { intent ->
-//                intent.resolveActivity(packageManager)?.also {
-//                    var capturedImage = File(getExternalFilesDir(null), "capturedImage.jpg")
-//                    capturedImage?.also {
-//                        val photoUri = FileProvider.getUriForFile(this,  BuildConfig.APPLICATION_ID + "." + localClassName + ".fileprovider", it) as Uri
-//                        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
-//                        captureImageLauncher.launch(intent)
-//                    }
-//                }
-//            }
-
         }
 
         load_button.setOnClickListener {
@@ -89,21 +65,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-        // Function if image is URI, then convert to bitmap. if already bitmap then do the text recognition https://i.imgur.com/tFwv6U0.png
-
     }
-
-    //Create function to read the text from the image. Put this function inside the load image/take picture. use the image after setting the image in the text_viewer area
 
 
     var captureImageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result?.resultCode == RESULT_OK) {
-            //val image = result?.data?.extras?.get("data") as Bitmap
-            //image_viewer.setImageBitmap(image)
-            //val image = result.data?.data // When coming back this is the problem. Image isn't loading into ImageView for some resaon.
-            //text_viewer.text = "Camera Launcher"
-            //image_viewer.setImageURI(image)
             var imageBitmap = BitmapFactory.decodeFile(capturedImagePath) as Bitmap
             image_viewer.setImageBitmap(imageBitmap)
         } else {
