@@ -10,9 +10,8 @@
         android:id="@+id/title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Image to Text"
         android:textAlignment="center"
-        android:textSize="26dp" />
+        />
 
     <ImageView
         android:id="@+id/image_viewer"
