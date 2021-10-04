@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/updated_playstore_icon"
-        android:label="Text Recognitizer"
+        android:label="Text Recognizer"
         android:roundIcon="@mipmap/updated_playstore_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TextRecognition">
